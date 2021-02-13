@@ -1,0 +1,233 @@
+.form {
+    position: relative;
+    width: 100%;
+    padding: 40px 50px 20px 50px;
+    margin-top: 24px;
+    background-color: #000000;
+    box-sizing: border-box;
+    box-shadow: 0 25px 60px -25px rgba(18, 105, 180, .6);
+    z-index: 50;
+    transition: 0.75s ease-in;
+}
+.form::before {
+     position: absolute;
+     content: '';
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     height: 100%;
+     background: rgb(79,79,79);
+     background: radial-gradient(circle, rgba(63,63,63,.9) 10%, rgba(22,22,22,1) 100%);
+     z-index: -1;
+}
+
+.form.formCompleted {
+    filter: brightness(-200%);
+
+}
+
+@media (max-width: 620px) {
+    .form::before {
+        background: radial-gradient(circle, rgba(52, 82, 148, 0.9) 10%, #0c3358 100%);
+    }
+}
+
+.form p {
+    color: #ffffff;
+}
+
+@media (max-width: 670px) {
+    .form p span {
+        display: none;
+    }
+}
+
+.formIsCompleted {
+    opacity: 1;
+    transform: translateY(10px);
+}
+
+.formTitle {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.formDesc {
+    color: #cdcdcd;
+    min-width: 250px;
+    padding-right: 50px;
+}
+
+.formWrapper {
+    position: relative;
+    display: flex;
+}
+
+.formWrapper::before {
+    position: absolute;
+    content: '';
+    top: 40px;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background-image: url('./images/clock.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.formWrapper button {
+    margin-top: 18px;
+}
+
+.formAction {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.formActionSubmitting {
+    pointer-events: none;
+    opacity: .7;
+}
+
+.formAction > div {
+    color: #ffffff;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    width: calc(50% - 10px);
+}
+
+.otherFields {
+    display: flex;
+    margin-right: 0 !important;
+    width: 100% !important;
+}
+
+.otherFields > div {
+    margin-right: 10px;
+}
+
+.otherFields {
+    transition: .3s;
+    overflow: hidden;
+    height: 0;
+}
+
+.otherFieldsActive {
+    height: 81px !important;
+}
+
+.submit {
+    font-size: 12px;
+    font-weight: 700;
+    max-height: 46px;
+    margin-top: 18px;
+    margin-left: 10px;
+    padding: 0 40px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background: #b5242b;
+    color: #ffffff;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: .25s ease;
+    box-shadow:  0 7px 25px 0 rgba(181,36,43,.6);
+}
+
+.submit:hover {
+    box-shadow: 0 8px 40px 0 rgba(181, 36, 43, .75);
+}
+
+.completedScreenWrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    //background: #000;
+    z-index: 100;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+@media (max-width: 1080px) {
+    .form {
+        padding-bottom: 50px;
+    }
+    .formWrapper {
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+    .formWrapper button {
+        width: calc(100% - 260px);
+        margin-top: 0;
+        margin-right: 10px;
+    }
+    .formAction {
+        width: calc(100% - 250px);
+    }
+}
+
+@media (max-width: 992px) {
+    .formWrapper {
+        display: block;
+    }
+    .formWrapper::before {
+        content: none;
+    }
+    .formDesc {
+        padding-right: 20px;
+    }
+    .formDesc br {
+        display: none;
+    }
+    .formAction {
+        width: 100%;
+        margin-top: 24px;
+    }
+    .formAction > div:nth-child(2n) {
+        margin-right: 0;
+        width: 50%;
+    }
+    .otherFields > div:nth-child(2n) {
+        margin-right: 0;
+    }
+    .formWrapper button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 620px) {
+    .form {
+        padding: 30px 30px 40px;
+    }
+}
+
+@media (max-width: 460px) {
+    .form {
+        border-radius: 5px;
+        padding: 30px 24px 30px;
+    }
+    .form::before {
+        border-radius: 5px;
+    }
+}
+
+@media (max-width: 450px) {
+    .otherFields {
+        flex-wrap: wrap;
+    }
+    .otherFieldsActive {
+        height: 172px !important;
+    }
+    .formAction > div,
+    .otherFields > div {
+        width: 100% !important;
+        margin-right: 0;
+    }
+}

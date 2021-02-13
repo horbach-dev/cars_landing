@@ -1,0 +1,198 @@
+.ThirdSection {
+    position: relative;
+    width: 100%;
+    padding-bottom: 50px;
+    background-size: cover;
+    background: #ffffff;
+}
+
+.actionButtons {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    z-index: 20;
+}
+
+.actionBtn {
+    position: absolute;
+    top: -25px;
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actionBtn span {
+    height: 18px;
+    width: 18px;
+}
+
+.actionBtn svg {
+    height: 18px;
+    width: 18px;
+}
+
+.actionBtn:nth-child(1) {
+    left: -25px;
+}
+
+.actionBtn:nth-child(2) {
+    right: -25px;
+}
+
+.featuresBlock {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 400px;
+    padding: 50px 70px;
+    color: #ffffff;
+    background: linear-gradient(200deg, rgba(0, 95, 158, .9) 50%, rgba(26, 27, 76, 1) 100%);
+    box-shadow: 0 25px 60px -25px rgba(18, 105, 180, .6);
+}
+
+.featuresBlock h3 {
+    color: #ffffff;
+}
+
+.featuresItem {
+    height: 100%;
+}
+
+.decor {
+    position: absolute;
+    right: 60px;
+    bottom: 0;
+    font-weight: bold;
+    font-size: 242px;
+    line-height: 242px;
+}
+
+@media (max-width: 745px) {
+    .featuresBlock {
+        border-radius: 5px;
+    }
+    .decor {
+        font-size: 100px;
+        line-height: 100px;
+        opacity: 0.3;
+    }
+}
+
+.featuresContent {
+    position: relative;
+    width: 100%;
+    z-index: 20;
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.featuresTitle {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.featuresDesc {
+    font-size: 16px;
+    max-width: 400px;
+}
+
+.time {
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    display: block;
+    margin-top: 24px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.featuresPicture {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 9;
+}
+
+.featuresPictureItem {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center 60%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: .7s ease;
+    transform: scale(2) translateX(50%);
+    opacity: 0;
+}
+
+.picActive {
+    opacity: 0.5;
+    transform: scale(1) translateX(0%);
+}
+
+@media (max-width: 1080px) {
+    .featuresBlock {
+        padding: 30px 55px;
+    }
+}
+
+@media (max-width: 900px) {
+    .featuresPicture {
+        width: 70%;
+    }
+}
+
+@media (max-width: 860px) {
+    .featuresPicture {
+        width: 80%;
+    }
+}
+
+@media (max-width: 640px) {
+    .featuresBlock {
+        height: 300px;
+        background: linear-gradient(200deg, rgba(0, 95, 158, 1) 50%, rgba(26, 27, 76, 1) 100%);
+    }
+    .featuresTitle {
+        font-size: 24px;
+    }
+    .featuresPicture {
+        width: 100%;
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 560px) {
+    .ThirdSection {
+        padding-bottom: 30px;
+    }
+    .featuresBlock {
+        padding: 30px 35px 30px 45px;
+    }
+    .actionBtn {
+        max-width: 40px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+    }
+    .actionBtn:nth-child(1) {
+        left: -20px;
+    }
+    .actionBtn:nth-child(2) {
+        right: -20px;
+    }
+}

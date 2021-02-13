@@ -1,0 +1,70 @@
+.CarLogosSection {
+    padding-bottom: 50px;
+}
+
+.LogosWrap {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 0 25px 60px -25px rgba(18, 105, 180, .6);
+}
+
+.LogosWrapItem {
+    position: relative;
+    width: 12.5%;
+    max-height: 120px;
+    padding: 15px 30px;
+    outline: none;
+    background: none;
+    border: none;
+    border-right: 1px solid rgba(1,1,1,.1);
+    border-bottom: 1px solid rgba(1,1,1,.1);
+    /*background: rgba(33,33,33,.1);*/
+}
+
+@media (max-width: 992px) {
+    .LogosWrapItem {
+        width: 16.666666%;
+    }
+}
+
+@media (max-width: 740px) {
+    .LogosWrapItem {
+        width: 20%;
+    }
+}
+
+@media (max-width: 640px) {
+    .LogosWrapItem {
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 560px)  {
+    .CarLogosSection {
+        padding-bottom: 0;
+    }
+}
+
+@media (max-width: 420px) {
+    .LogosWrapItem {
+        padding: 5px 15px;
+    }
+}
+
+@media (max-width: 380px) {
+    .LogosWrapItem {
+        padding: 5px 10px;
+    }
+}
+
+.LogosWrapItem:hover {
+    background: rgba(60,170,255,.4);
+}
+
+.LogosWrapItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

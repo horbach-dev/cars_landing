@@ -1,0 +1,69 @@
+
+.RatingAuto {
+    background: #ffffff;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #333333;
+}
+
+.flex {
+    display: flex;
+}
+
+.ratingForm {}
+
+.whatNeed {
+    width: 50%;
+    padding: 40px 50px 50px;
+}
+
+.pointItem {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 0 25px 0;
+}
+
+.pointIcon {
+    position: relative;
+    /*top: 10px;*/
+    min-width: 20px;
+    width: 20px;
+    height: 20px;
+    background-image: url('images/checked.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 14px;
+}
+
+.pointText {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+@media (max-width: 992px) {
+    .RatingAuto {
+        padding-bottom: 0;
+    }
+    .flex {
+        flex-direction: column;
+    }
+    .ratingForm {
+        width: 100%;
+    }
+    .whatNeed {
+        width: 100%;
+        padding-top: 60px;
+        padding-bottom: 0;
+    }
+}
+
+@media (max-width: 580px) {
+    .RatingAuto {
+        padding-top: 30px;
+    }
+    .whatNeed {
+        padding: 60px 0 0 0;
+    }
+}

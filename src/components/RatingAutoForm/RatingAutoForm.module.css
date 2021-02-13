@@ -1,0 +1,141 @@
+.form {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 50%;
+    padding: 40px 50px 50px 50px;
+    box-sizing: border-box;
+    box-shadow: 0 25px 60px -25px rgba(18, 105, 180, .6);
+    z-index: 50;
+    overflow: hidden;
+}
+
+.formAction {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.formActionSubmitting {
+    pointer-events: none;
+    opacity: .7;
+}
+
+.formAction > div {
+    color: #ffffff;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    width: calc(50% - 10px);
+}
+
+.formInputs {
+    display: inline-flex;
+    width: 50%;
+    flex-wrap: wrap;
+}
+
+.formInputs > div {
+    color: #ffffff;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    width: calc(50% - 10px);
+}
+
+.uploaderWrap {
+    display: block;
+    width: 100%;
+}
+
+.uploaderLabel {
+    display: block;
+    color: #333333;
+    font-size: 10px;
+    letter-spacing: 0.7px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.otherFields {
+    display: flex;
+    margin-right: 0 !important;
+    width: 100% !important;
+}
+
+.otherFields > div {
+    margin-right: 10px;
+}
+
+.otherFields {
+    transition: .3s;
+    overflow: hidden;
+    height: 0;
+}
+
+.otherFieldsActive {
+    height: 68px !important;
+}
+
+.submit {
+    font-size: 12px;
+    font-weight: 700;
+    max-height: 46px;
+    margin-top: 18px;
+    margin-left: 10px;
+    padding: 0 40px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background: #b5242b;
+    color: #ffffff;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: .25s ease;
+    box-shadow:  0 7px 25px 0 rgba(181,36,43,.6);
+}
+
+.submit:hover {
+    box-shadow: 0 8px 40px 0 rgba(181, 36, 43, .75);
+}
+
+.formAction button {
+    margin-top: 12px;
+}
+
+@media (max-width: 1080px) {
+    .formAction > div {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 991px) {
+    .form {
+        width: 100%;
+    }
+    .formAction > div {
+        width: calc(50% - 10px);
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 620px) {
+    .form {
+        padding: 30px 30px 40px
+    }
+    .formAction > div:nth-child(2n) {
+        margin-right: 0;
+        width: 50%;
+    }
+    .formAction button {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 450px) {
+    .formAction > div {
+        margin-right: 0;
+        width: 100% !important;
+    }
+}

@@ -1,0 +1,373 @@
+@import "~antd/dist/antd.css";
+@import "~swiper/swiper";
+@import "~swiper/components/navigation/navigation.scss";
+@import "~swiper/components/pagination/pagination.scss";
+@import "~swiper/components/scrollbar/scrollbar.scss";
+@import "./fonts/HelveticaNeueCyr/stylesheet.css";
+
+.App {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "HelveticaNeueCyr", sans-serif;
+  font-size: 14px;
+  line-height: 1.3;
+  margin: 0;
+  width: 100%;
+  min-width: 320px !important;
+}
+
+
+h1, h2, h3, h4, h5, h6, p, div, span {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.ant-message {
+  z-index: 9999;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex.center {
+  align-items: center;
+}
+
+.flex.between {
+  justify-content: space-between;
+}
+
+.section-title {
+  margin-bottom: 12px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+@media (max-width: 620px) {
+  .section-title span {
+    display: none;
+  }
+}
+
+.section-semi-title {
+  margin-bottom: 12px;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.section-desc {
+  font-size: 14px;
+  margin-bottom: 32px;
+  max-width: 460px;
+}
+
+@media (max-width: 1080px) {
+  .container {
+    padding: 0 60px;
+  }
+}
+
+@media (max-width: 720px) {
+  .container {
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 460px) {
+  .section-title {
+    font-size: 21px;
+  }
+}
+
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  position: relative;
+  width: 100%;
+  height: 46px;
+  color: #333333;
+  background-color: transparent;
+  border: 1px solid rgba(33,33,33,.25);
+  border-radius: 5px;
+  padding-top: 8px;
+  box-sizing: border-box;
+}
+
+.black-field .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,.25);
+}
+
+
+
+.ant-select-disabled.ant-select-single:not(.ant-select-customize-input) .ant-select-selector,
+.ant-input-number-disabled,
+.ant-input-disabled {
+  border: none;
+  background: rgba(33,33,33,.3) !important;
+  color: #ffffff !important
+}
+
+.black-field .ant-select-disabled.ant-select-single:not(.ant-select-customize-input) .ant-select-selector,
+.black-field .ant-input-number-disabled,
+.black-field .ant-input-disabled {
+  background: rgba(255,255,255,.3) !important;
+  color: #444 !important
+}
+
+
+
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input {
+  margin-top: 8px;
+}
+
+.ant-select-item-option-content {
+  color: #333333;
+}
+
+.ant-input {
+  position: relative;
+  width: 100%;
+  height: auto;
+  color: #333333;
+  background-color: transparent;
+  border: 1px solid rgba(33,33,33,.25);
+  border-radius: 5px;
+  padding: 11px;
+  box-sizing: border-box;
+}
+
+.black-field .ant-input {
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,.25);
+}
+
+.ant-input-number {
+  position: relative;
+  width: 100%;
+  height: auto;
+  color: #333333;
+  background-color: transparent;
+  border: 1px solid rgba(33,33,33,.25);
+  border-radius: 5px;
+  padding: 11px 11px 11px 0;
+  box-sizing: border-box;
+}
+
+.black-field .ant-input-number {
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,.25);
+}
+
+.black-field .ant-input-number:hover,
+.black-field .ant-input-focused,
+.black-field .ant-input:hover,
+.black-field .ant-input-number-focused,
+.black-field .ant-input-number:hover {
+  border-color: #40a9ff;
+}
+
+.ant-input-number-input {
+  height: auto;
+}
+
+.ant-upload-picture-card-wrapper {
+  position: relative;
+  top: -12px;
+}
+
+.ant-upload-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ant-upload-list-picture-card-container {
+  width: calc(25% - 8px);
+  max-height: 80px;
+}
+
+.ant-upload.ant-upload-select.ant-upload-select-picture-card {
+  width: 100%;
+}
+
+.ant-upload.ant-upload-select-picture-card {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 115px;
+  border-radius: 5px;
+  padding: 20px 0;
+}
+
+.ant-select-arrow,
+.ant-select-clear {
+  display: none;
+}
+
+.ant-input-number-handler-wrap {
+  border-color: #1890ff;
+  background: #ffffff;
+  border-radius: 0 5px 5px 0;
+}
+
+.black-field .ant-input-number-handler-wrap {
+  background: #444444;
+  border-color: #1890ff;
+}
+
+.ant-input-number-handler-wrap svg {
+  fill: #1890ff;
+}
+
+.ant-input-number-handler-down {
+  border-color: #1890ff;
+}
+
+.ant-select-clear {
+  background: none;
+}
+
+.ant-btn-primary {
+  position: relative;
+  height: 46px;
+  border-radius: 5px;
+  padding: 0 25px;
+  background: #0099ff;
+  font-weight: 600;
+}
+
+.ant-btn-primary:hover::after {
+  box-shadow: 0 0 40px 10px #1ba0ff;
+}
+
+.ant-btn::before,
+.ant-btn.ant-btn-loading::before {
+  content: none !important;
+}
+
+.ant-btn-primary::after {
+  position: absolute !important;
+  content: '' !important;
+  transition: .3s !important;
+  top: 90% !important;
+  left: 50% !important;
+  width: 90% !important;
+  height: 0 !important;
+  transform: translateX(-50%) !important;
+  box-shadow: 0 0 50px 10px #0099ff !important;
+  z-index: -1;
+}
+
+.ant-upload.ant-upload-select-picture-card {
+  margin-right: 0;
+}
+
+.ant-btn > span {
+  line-height: 25px;
+}
+
+.ant-modal-root {
+  position: relative;
+  z-index: 2500;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  top: calc(50% - 20px);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.home-slider .swiper-button-prev,
+.home-slider .swiper-button-next {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #0099ff;
+}
+
+.home-slider .swiper-button-prev::after,
+.home-slider .swiper-button-next::after {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+  left: 50px;
+}
+
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+  right: 50px;
+}
+
+.ant-modal {
+  border-radius: 10px;
+  max-width: 420px;
+}
+
+.ant-modal-content {
+  border-radius: 7px;
+}
+
+.ant-modal-header {
+  border-radius: 7px 7px 0 0;
+}
+
+@media (max-width: 420px)  {
+  .ant-modal {
+    max-width: 320px;
+  }
+}
+
+.ant-modal-close-x {
+  position: relative;
+}
+
+.ant-modal-close-x::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 30px;
+  height: 14px;
+  width: 1px;
+  transform: rotate(45deg);
+  background: #333333;
+}
+
+.ant-modal-close-x::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 30px;
+  height: 14px;
+  width: 1px;
+  transform: rotate(-45deg);
+  background: #333333;
+}
+
+
+
+
+
+
+
+
+
+

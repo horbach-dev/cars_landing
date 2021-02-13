@@ -1,0 +1,184 @@
+.PurchasedCars {
+    position: relative;
+    display: block;
+    padding-top: 50px;
+    padding-bottom: 70px;
+}
+
+.actionButtons {
+    position: absolute;
+    top: calc(50% - 20px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1060px;
+    z-index: 20;
+}
+
+.actionBtn {
+    position: absolute;
+    top: -25px;
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actionBtn span {
+    height: 18px;
+    width: 18px;
+}
+
+.actionBtn svg {
+    height: 18px;
+    width: 18px;
+}
+
+.actionBtn:nth-child(1) {
+    left: 24px;
+}
+
+.actionBtn:nth-child(2) {
+    right: 24px;
+}
+
+.purchasedSlider {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    padding: 14px 0 70px 0;
+}
+
+.purchasedSliderItemWrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 210px;
+    height: 250px;
+    padding: 25px 30px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: .3s ease;
+}
+
+.purchasedSliderItemWrap::before {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 25px;
+    width: calc(100% - 50px);
+    height: 50px;
+    border-radius: 3px;
+    box-shadow: 0 25px 45px -15px rgba(18, 105, 180, .9);
+    transition: .3s ease;
+}
+
+.purchasedSliderItem {
+    padding: 0 14px;
+}
+
+.purchasedSliderItemWrap:hover {
+    transform: scale(1.04);
+}
+
+.purchasedSliderItemWrap:hover::before {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 45px -15px rgb(0, 139, 255);
+}
+
+.purchasedSliderItem figure {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    z-index: 10;
+}
+
+.purchasedSliderItem figure::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(200deg, rgba(0, 95, 158, .35) 50%, rgba(26, 27, 76, 0.7) 100%);
+    z-index: 11;
+}
+
+.purchasedSliderItem figure img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+    object-position: center;
+}
+
+.purchasedItemBottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.purchasedItemTitle {
+    position: relative;
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: 700;
+    text-shadow: 0 1px 5px #333333;
+    z-index: 20;
+}
+
+.purchasedItemPrice {
+    position: relative;
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: 700;
+    text-shadow: 0 1px 5px #333333;
+    z-index: 20;
+}
+
+.purchasedItemCity {
+    position: relative;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    text-shadow: 0 1px 5px #333333;
+    z-index: 20;
+}
+
+.callWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.callBtn {
+    position: relative;
+    z-index: 100;
+    width: 250px;
+    margin-top: -30px;
+}
+
+@media (max-width: 560px)  {
+    .PurchasedCars {
+        padding-top: 30px;
+        padding-bottom: 40px;
+    }
+}
+
+@media (max-width: 478px)  {
+    .actionBtn {
+        width: 38px;
+        height: 38px;
+        padding: 0 15px;
+    }
+}

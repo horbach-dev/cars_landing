@@ -1,0 +1,138 @@
+.Footer {
+    position: relative;
+    padding: 80px 0;
+    width: 100%;
+    margin: 50px auto 0;
+    /*background-image: url('/images/footer-test.jpg');*/
+    background: rgba(1,1,1,.0);
+    /*background-repeat: no-repeat;*/
+    /*background-position: center;*/
+    /*background-size: cover;*/
+    z-index: 0;
+}
+
+.Footer::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to left, transparent 20%, rgba(0,0,0,0.2), transparent 80%);
+}
+
+.Footer::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background: rgba(1,1,1,.8);*/
+}
+
+.FooterWrap {
+    position: relative;
+    display: flex;
+    z-index: 100;
+}
+
+.FooterLeft {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.FooterLeft img {
+    max-width: 100px;
+    margin-bottom: 15px;
+}
+
+.FooterRight {
+    width: 100%;
+    padding-left: 40px;
+}
+
+.FooterTitle {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.FooterNavigation {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0;
+    padding-left: 15px;
+}
+
+.FooterNavigationItem {
+    width: calc(50% - 15px);
+    margin-bottom: 8px;
+    margin-right: 15px;
+    margin-left: 0;
+    padding-left: 0;
+    font-weight: 500;
+    color: #333333;
+}
+
+.FooterAddress {
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.FooterPhone {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.FooterPhone svg {
+    fill: #1890ff;
+    width: 15px;
+}
+
+.FooterPhone svg path {
+    fill: #1890ff;
+}
+
+.FooterPhone span {
+    position: relative;
+    top: 1px;
+    margin-left: 10px;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+@media (max-width: 766px) {
+    .FooterRight {
+        padding-left: 15px;
+    }
+    .FooterLeft {
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 560px)  {
+    .Footer {
+        padding: 50px 0;
+    }
+}
+
+@media (max-width: 520px) {
+    .FooterWrap {
+        flex-direction: column;
+    }
+    .FooterLeft {
+        margin-bottom: 20px;
+        padding-right: 0;
+    }
+    .FooterRight {
+        padding-left: 0;
+    }
+    .FooterPhone {
+        margin-bottom: 0;
+    }
+    .FooterAddress {
+        margin-top: 20px;
+    }
+}

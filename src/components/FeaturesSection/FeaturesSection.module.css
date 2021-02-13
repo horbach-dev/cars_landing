@@ -1,0 +1,288 @@
+.FeaturesSection {
+    position: relative;
+    width: 100%;
+    margin-top: -140px;
+    padding-top: 230px;
+    padding-bottom: 60px;
+    background-size: cover;
+    background: #ffffff;
+}
+
+.guarantyBlock {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 50px;
+}
+
+.guarantyBlock .flex {
+    flex-direction: column;
+}
+
+.guarantyItem {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 50%;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.guarantyIcon {
+    position: relative;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    background-image: url('images/checked.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 14px;
+}
+
+.guarantyText {
+    max-width: 280px;
+}
+
+.guarantyTextTop {
+    font-size: 21px;
+    line-height: 1.2;
+    font-weight: 700;
+    max-width: 280px;
+    margin-bottom: 16px;
+}
+
+.guarantyTextBottom {}
+
+.bottomButton {
+    display: none;
+    max-width: 520px;
+    margin: 40px auto 0 auto;
+}
+
+.whatCars {
+    display: flex;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    box-shadow: 0 25px 60px -25px rgba(18, 105, 180, .6)
+}
+
+.whatCarsItem {
+    position: relative;
+    padding: 50px 0 50px 50px;
+    min-width: 300px;
+    overflow: hidden;
+}
+
+.whatCarsItem::before {
+    position: absolute;
+    content: '1';
+    top: -50px;
+    left: 20px;
+    font-weight: 700;
+    font-size: 366px;
+    color: rgba(33,33,33,.05);
+    z-index: 0;
+}
+
+.whatCarsItem:nth-child(2)::before  {
+    content: '2';
+    left: 50px;
+}
+
+.whatCarsItem:nth-child(3)::before  {
+    content: '3';
+    left: 50px;
+}
+
+.whatCarsItem:nth-child(2n -1) {
+    background: rgba(27, 160, 255, .1);
+}
+
+.whatCarsItem:hover .whatCarsImg {
+    transform: translateX(-30px);
+}
+
+.whatCarsImg {
+    position: relative;
+    width: 430px;
+    height: 165px;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transform: translateX(50px);
+    transition: .7s ease;
+}
+
+.first {
+    background-image: url('images/car1.png');
+}
+
+.whatCarsItem:hover .whatCarsImg::before {
+    transform: rotate(-120deg);
+}
+
+.whatCarsImg::before {
+    position: absolute;
+    content: '';
+    top: 100px;
+    left: 53px;
+    width: 50px;
+    height: 50px;
+    transition: .7s ease;
+    background: url('images/car-wheel.png');
+    background-size: contain;
+}
+
+.second {
+    background-image: url('images/car2.png');
+}
+.third {
+    background-image: url('images/car3.png');
+}
+
+.third::before {
+    left: 60px
+}
+
+.whatCarsTitle {
+    /*margin: 20px 0;*/
+    /*text-align: center;*/
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.whatCarsDesc {
+    font-size: 14px;
+    margin-top: 16px;
+    padding-right: 50px;
+}
+
+@media (max-width: 1020px) {
+    .whatCars {
+        flex-wrap: wrap;
+    }
+    .whatCarsItem {
+        width: 50%;
+    }
+    .whatCarsItem:last-of-type {
+        width: 100%;
+        background: rgba(27, 160, 255, .2);
+    }
+    .whatCarsItem:last-of-type .whatCarsImg {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .whatCarsImg {
+        left: 100px;
+    }
+    .whatCarsItem:last-of-type .whatCarsImg::before {
+        content: none;
+    }
+}
+
+@media (max-width: 860px) {
+    .topBlock button {
+        display: none;
+    }
+
+    .bottomButton {
+        display: block;
+        width: 100%;
+    }
+
+    .guarantyBlock {
+        margin-bottom: 30px;
+    }
+
+    .guarantyItem {
+        padding: 10px 10px 20px;
+    }
+    .guarantyIcon {
+        width: 24px;
+        height: 24px;
+        min-width: 24px;
+    }
+    .guarantyTextTop {
+        font-size: 18px;
+    }
+    .whatCarsImg {
+        left: 30px;
+    }
+}
+
+@media (max-width: 760px) {
+    .guarantyText {
+        max-width: 100%;
+    }
+    .guarantyTextBottom {
+        padding-right: 10px;
+    }
+    .whatCarsImg {
+        left: 0;
+    }
+}
+
+@media (max-width: 665px) {
+    .SecondSection {
+        padding-top: 180px;
+    }
+    .guarantyItem {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .guarantyTextBottom {
+        max-width: 360px;
+    }
+    .whatCarsItem {
+        width: 100%;
+    }
+    .whatCarsImg {
+        left: 240px;
+    }
+}
+
+@media (max-width: 565px) {
+    .FeaturesSection {
+        padding-top: 180px;
+    }
+
+    .whatCarsImg {
+        left: 160px;
+    }
+    .whatCarsItem:last-of-type .whatCarsImg {
+        left: 160px;
+        transform: translateX(0);
+    }
+}
+@media (max-width: 475px) {
+    .whatCarsImg {
+        left: 90px;
+    }
+    .whatCarsItem:last-of-type .whatCarsImg {
+        left: 90px;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 420px) {
+    .whatCarsImg {
+        left: 50px;
+    }
+    .whatCarsItem:last-of-type .whatCarsImg {
+        left: 50px;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 400px) {
+    .whatCarsImg {
+        left: 30px;
+    }
+    .whatCarsItem:last-of-type .whatCarsImg {
+        left: 30px;
+        transform: translateX(0);
+    }
+}

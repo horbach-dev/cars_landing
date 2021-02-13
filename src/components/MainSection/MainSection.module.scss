@@ -1,0 +1,197 @@
+.firstSection {
+    position: relative;
+    width: 100%;
+    padding-top: 20px;
+    background: #000000;
+}
+
+.firstSectionBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: top;
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.firstSectionBg::before {
+     position: absolute;
+     content: '';
+     top: 0;
+     left: 0;
+     padding-left: 300px;
+     padding-bottom: 200px;
+     width: 100%;
+     height: 100%;
+     opacity: .75;
+     background: rgb(79,79,79);
+     background: linear-gradient(200deg, rgba(0, 95, 158, .9) 50%, rgba(26, 27, 76, 1) 100%)
+ }
+
+.firstSectionMiddle {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: 120px;
+    z-index: 150;
+}
+
+.firstSectionLeft {
+    position: relative;
+    z-index: 20;
+}
+
+.firstSectionTitle {
+    position: relative;
+    color: #ffffff;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.firstSectionOffer {
+    color: #ffffff;
+    font-size: 72px;
+    line-height: 58px;
+    font-weight: 800;
+    margin-bottom: 28px;
+}
+.firstSectionDesc {
+    max-width: 374px;
+    margin-bottom: 18px;
+    color: #cdcdcd;
+    font-size: 14px;
+}
+.firstSectionRight {
+    position: relative;
+    width: 50%;
+    background: #000;
+    z-index: 100;
+}
+
+.picture {
+    position: absolute;
+    content: '';
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 100;
+    animation: cars 8s infinite;
+}
+
+@media (max-width: 1080px) {
+    .picture {
+        top: 70px
+    }
+}
+
+@media (max-width: 992px) {
+    .firstSectionMiddle {
+        padding-top: 100px;
+    }
+
+    .firstSectionOffer {
+        font-size: 52px;
+        line-height: 46px;
+    }
+
+    .picture {
+        top: 50px;
+    }
+}
+
+@media (max-width: 620px) {
+    .firstSectionBg {
+        background-position: 30px 0;
+        top: 50px;
+        opacity: .65;
+        background-image: url('images/second-slide.png');
+    }
+    .firstSectionBg::before {
+        opacity: .3;
+    }
+    .firstSectionLeft {
+        padding-left: 24px;
+    }
+    .firstSectionTitle {
+        text-shadow: 0 5px 20px rgba(55,33,33,1);
+    }
+    .firstSectionOffer {
+        text-shadow: 0 5px 20px rgba(55,33,33,1);
+    }
+    .firstSectionDesc {
+        color: #fefefe;
+        text-shadow: 0 5px 20px rgba(55,33,33,1);
+    }
+    .firstSectionRight {
+        display: none;
+        position: absolute;
+        left: auto;
+        right: 0;
+        width: 70%;
+        z-index: 5;
+    }
+    .picture {
+        top: 20px;
+        left: -20px;
+        opacity: 0.15;
+    }
+}
+
+@media (max-width: 560px) {
+    .firstSectionMiddle {
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 520px) {
+    .firstSectionTitle {
+        text-shadow: 0 5px 20px rgba(55,33,33,0.5);
+    }
+    .firstSectionOffer {
+        text-shadow: 0 5px 20px rgba(55,33,33,0.5);
+    }
+    .firstSectionDesc {
+        color: #fefefe;
+        text-shadow: 0 5px 20px rgba(55,33,33,0.5);
+    }
+    .firstSectionRight {
+        display: none;
+    }
+}
+
+@media (max-width: 420px) {
+    .firstSectionTitle span {
+        display: block;
+    }
+    .firstSectionOffer {
+        font-size: 42px;
+        line-height: 38px;
+    }
+}
+
+@keyframes cars {
+    0% {
+        background-image: url('images/car.png');
+    }
+    45% {
+        background-image: url('images/car.png');
+    }
+    50% {
+        background-image: url('images/car3.png');
+    }
+    95% {
+        background-image: url('images/car3.png');
+    }
+    100% {
+        background-image: url('images/car.png');
+    }
+}

@@ -1,0 +1,16 @@
+.bodyPopup {
+    display: flex;
+}
+
+.form button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.fields > div {
+    margin-bottom: 20px;
+}
+
+.desc {
+    margin-bottom: 20px;
+}
