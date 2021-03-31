@@ -5,8 +5,8 @@ import { FormError } from "../utils/formError";
 const FORM_ERROR_CODE = 10001;
 const ALERT_ERROR_CODE = 10101;
 
-// const local = '/'
-const local = 'http://localhost:8000/'
+const local = '/'
+// const local = 'http://localhost:8000/'
 
 const client = axios.create({
   baseURL: local,
@@ -24,6 +24,10 @@ export const request = (endpoint, options = {}) => {
 
       if (!error.response || !error.response.data) {
         throw error;
+      }
+
+      if (error.response.status === 404) {
+        return message.error('Произошла ошибка, свяжитесь с нами по телефону!');
       }
 
       const errorCode = error.response.data.code;

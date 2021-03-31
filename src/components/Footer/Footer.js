@@ -17,14 +17,14 @@ const Footer = () => {
             <h5 className={styles.FooterTitle}>
               Наши контакты
             </h5>
-            <a href="tel:+375259531799" className={styles.FooterPhone}>
-              <PhoneIcon/><span>+375 (25) 953-17-99</span>
-            </a>
+            {/*<a href="tel:+375259531799" className={styles.FooterPhone}>*/}
+            {/*  <PhoneIcon/><span>+375 (25) 953-17-99</span>*/}
+            {/*</a>*/}
             <a href="tel:+375259531799" className={styles.FooterPhone}>
               <PhoneIcon/><span>+375 (25) 953-17-99</span>
             </a>
             <p className={styles.FooterAddress}>
-              УНП 391084896 <br/>
+              УНП 591747370 <br/>
               Выкуп авто Республика Беларусь © 2020
             </p>
           </div>

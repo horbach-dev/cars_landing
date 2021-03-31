@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import classnames from "classnames";
-import { Field } from "formik";
+import {Field} from "formik";
 import SelectField from "../../components/Form/SelectField";
 import InputField from "../../components/Form/InputField";
 import InputNumberField from "../../components/Form/InputNumberField";
 import InputPhoneField from "../../components/Form/InputPhoneField";
 import ImageDefault from "./ImageUploader";
-import { cars } from "../../helpers/cars";
-import { years } from "../../helpers/years";
+import {cars} from "../../helpers/cars";
+import {years} from "../../helpers/years";
 
 import styles from "./RatingAutoForm.module.css";
 import {Button} from "antd";
 
-const RatingAutoFormContent = ({ values, errors, setFieldValue, handleSubmit, dirty, isSubmitting, mark }) => {
+const RatingAutoFormContent = ({values, errors, setFieldValue, handleSubmit, dirty, isSubmitting, mark}) => {
   const [modelValues, setModelValues] = useState(
     (values && values.mark && cars[values.mark]) || []
   );
   const [wow, setWow] = useState(false);
-  const marks = Object.keys(cars).map(i => ({ label: i, value: i }));
+  const marks = Object.keys(cars).map(i => ({label: i, value: i}));
 
   const handleChangeMark = (value, setValue) => setValue("model", "");
 
@@ -33,16 +33,19 @@ const RatingAutoFormContent = ({ values, errors, setFieldValue, handleSubmit, di
   const getMark = (mark) => {
     setWow(true)
     setTimeout(() => {
-    if (mark === 'bmw') {
-      return setVal('BMW')
-    }
-    if (mark === 'mercedes-benz') {
-      return setVal('Mercedes-Benz')
-    }
-    if (mark === 'alfa-romeo') {
-      return setVal('Alfa Romeo')
-    }
-    setDefault(mark)
+      if (mark === 'bmw') {
+        return setVal('BMW')
+      }
+      if (mark === 'mercedes-benz') {
+        return setVal('Mercedes-Benz')
+      }
+      if (mark === 'alfa-romeo') {
+        return setVal('Alfa Romeo')
+      }
+      if (mark === 'land-rover') {
+        return setVal('Land Rover')
+      }
+      setDefault(mark)
     }, 500)
   }
 
@@ -62,7 +65,7 @@ const RatingAutoFormContent = ({ values, errors, setFieldValue, handleSubmit, di
   }, [values, dirty]);
 
   return (
-     <div className={classnames(styles.formAction, isSubmitting && styles.formActionSubmitting)}>
+    <div className={classnames(styles.formAction, isSubmitting && styles.formActionSubmitting)}>
       <Field
         name="mark"
         label="Марка"
@@ -92,34 +95,34 @@ const RatingAutoFormContent = ({ values, errors, setFieldValue, handleSubmit, di
         component={InputNumberField}
         min={100}
       />
-        <Field
-          name="name"
-          label="Ваше имя"
-          placeholder="Введите имя"
-          component={InputField}
-        />
-        <Field
-          name="phone"
-          label="Телефон"
-          placeholder="Введите номер"
-          component={InputPhoneField}
-        />
-          {/*<Field*/}
-          {/*  name="photos"*/}
-          {/*  label="Фотографии"*/}
-          {/*  placeholder="Кликнитеили перетащите сюда фотографии"*/}
-          {/*  component={ImageDefault}*/}
-          {/*/>*/}
-        <Button
-            type="primary"
-            disabled={isSubmitting || !!Object.keys(errors).length}
-            loading={isSubmitting}
-            onClick={handleSubmit}
-            style={{ width: '100%' }}
-        >
-            Оценить авто
-        </Button>
-      </div>
+      <Field
+        name="name"
+        label="Ваше имя"
+        placeholder="Введите имя"
+        component={InputField}
+      />
+      <Field
+        name="phone"
+        label="Телефон"
+        placeholder="Введите номер"
+        component={InputPhoneField}
+      />
+      {/*<Field*/}
+      {/*  name="photos"*/}
+      {/*  label="Фотографии"*/}
+      {/*  placeholder="Кликнитеили перетащите сюда фотографии"*/}
+      {/*  component={ImageDefault}*/}
+      {/*/>*/}
+      <Button
+        type="primary"
+        disabled={isSubmitting || !!Object.keys(errors).length}
+        loading={isSubmitting}
+        onClick={handleSubmit}
+        style={{width: '100%'}}
+      >
+        Оценить авто
+      </Button>
+    </div>
   );
 };
 
