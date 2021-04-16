@@ -1,11 +1,13 @@
 import axios from 'axios'
 import { message } from 'antd';
 import { FormError } from "../utils/formError";
+import {subscribe} from "./websocket";
 
 const FORM_ERROR_CODE = 10001;
 const ALERT_ERROR_CODE = 10101;
 
 const local = '/'
+// const local = 'http://192.168.100.147:8000/'
 // const local = 'http://localhost:8000/'
 
 const client = axios.create({
@@ -70,6 +72,28 @@ const api = {
       data
     })
   },
+  getAllCars: () => {
+    return request('/get-all-cars')
+  },
+  removeCar: (id) => {
+    return request(`/remove-car/${id}`, {
+      method: 'POST'
+    })
+  },
+  handleAccept: (id) => {
+    return request(`/accept-car/${id}`, {
+      method: 'POST'
+    })
+  },
+  webSocketConnect: (id) => {
+    return request(`/connect-websocket/${id}`);
+  },
+  PushSubscribe: (data) => {
+    return request('/subscribe', {
+      method: 'POST',
+      data: data
+    })
+  }
 }
 
 export default api;

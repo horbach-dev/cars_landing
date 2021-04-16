@@ -9,7 +9,6 @@ const PORT = process.env.PORT || 8000
 
 server.on("request", app);
 
-
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
