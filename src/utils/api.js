@@ -1,14 +1,12 @@
 import axios from 'axios'
 import { message } from 'antd';
 import { FormError } from "../utils/formError";
-import {subscribe} from "./websocket";
 
 const FORM_ERROR_CODE = 10001;
 const ALERT_ERROR_CODE = 10101;
 
-const local = '/'
-// const local = 'http://192.168.100.147:8000/'
-// const local = 'http://localhost:8000/'
+// const local = '/'
+const local = 'http://localhost:8002/'
 
 const client = axios.create({
   baseURL: local,

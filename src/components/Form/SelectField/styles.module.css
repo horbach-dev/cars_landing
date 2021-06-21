@@ -15,17 +15,16 @@
 
 .label {
     display: block;
-    color: #333333;
-    font-size: 10px;
-    letter-spacing: 0.7px;
-    font-weight: 400;
-    text-transform: uppercase;
+    color: #444444;
+    font-size: 12px;
+    letter-spacing: 0.1px;
+    font-weight: 700;
     margin-bottom: 5px;
 }
 
 .black .label {
     color: #ffffff;
-    font-weight: 300;
+    font-weight: 700;
 }
 
 .placeholder {

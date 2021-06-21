@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import {Select} from "antd";
 import classes from 'classnames';
 import style from "./styles.module.css";
@@ -16,8 +16,20 @@ const SelectField = ({
                        items,
                        isWow,
                      }) => {
+  const selectRef = useRef(null)
   const [isFocused, setFocused] = useState(false)
   const [isWowed, setWow] = useState(false)
+
+  const handleDropdownVisibleChange = isOpen => {
+      document.getElementsByTagName('body')[0].style = `overflow: ${isOpen ? 'hidden' : 'auto'}`
+  }
+
+  const handleSelect = () => {
+    selectRef &&
+    selectRef.current &&
+    selectRef.current.blur &&
+    setTimeout(() => selectRef.current.blur(), 100)
+  }
 
   const handleChangeValue = (value) => {
     form.setFieldValue(field.name, value ? value : "");
@@ -60,9 +72,10 @@ const SelectField = ({
     <div className={classes(style.wrap, isBlack && 'black-field', isBlack && style.black)}>
       {isWow && <WowAnimation/>}
       {label && <span className={style.label}>{label}</span>}
-      <div className={classes(style.selectWrap , isWowed && style.isWow)}>
+      <div className={classes(style.selectWrap, isWowed && style.isWow)}>
         {placeholder && !isFocused && !field.value && <span className={style.placeholder}>{placeholder}</span>}
         <Select
+          ref={selectRef}
           showSearch
           allowClear
           style={{width: "100%"}}
@@ -71,7 +84,9 @@ const SelectField = ({
           onInputKeyDown={handleInputChange}
           onSearch={handleInputChange}
           onFocus={handleFocus}
+          onSelect={handleSelect}
           onBlur={handleBlur}
+          onDropdownVisibleChange={handleDropdownVisibleChange}
           disabled={disabled}
           notFoundContent="Не найдено"
           value={field.value}
@@ -106,7 +121,7 @@ const WowAnimation = () => {
     setTimeout(() => setWow(true), 500)
   }, [])
 
-  return <div className={classes(style.poof, isWow && style.poofAction)} />
+  return <div className={classes(style.poof, isWow && style.poofAction)}/>
 }
 
 export default SelectField;

@@ -29,6 +29,11 @@
     width: calc(50% - 10px);
 }
 
+.formAction > div:nth-child(2n) {
+    margin-right: 0;
+    width: 50%;
+}
+
 .formInputs {
     display: inline-flex;
     width: 50%;
@@ -105,7 +110,7 @@
 
 @media (max-width: 1080px) {
     .formAction > div {
-        width: 100%;
+        width: 100% !important;
         margin-right: 0;
     }
 }
@@ -115,7 +120,7 @@
         width: 100%;
     }
     .formAction > div {
-        width: calc(50% - 10px);
+        width: calc(50% - 10px) !important;
         margin-right: 10px;
     }
 }

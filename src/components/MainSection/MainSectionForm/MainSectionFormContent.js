@@ -39,7 +39,7 @@ const MainSectionFormContent = ({values, errors, setFieldValue, handleSubmit, di
   }, [values, dirty]);
 
   return (
-    <>
+    <form onSubmit={handleSubmit} className={styles.formHtml}>
       <div className={classnames(styles.formAction, isSubmitting && styles.formActionSubmitting)}>
         <Field
           isBlack
@@ -97,13 +97,14 @@ const MainSectionFormContent = ({values, errors, setFieldValue, handleSubmit, di
       </div>
       <Button
         type="primary"
+        htmlType="submit"
         disabled={isSubmitting || !!Object.keys(errors).length}
         loading={isSubmitting}
         onClick={handleSubmit}
       >
         Отправить заявку
       </Button>
-    </>
+    </form>
   );
 };
 

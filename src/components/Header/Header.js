@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from 'classnames';
 import PhoneIcon from './PhoneIcon'
 
 import styles from './Header.module.css'
@@ -20,8 +21,11 @@ const Header = ({ handleOpenModel }) => {
           <span className={styles.indicator} />
           Сейчас работаем
         </div>
-        <a href="tel:+375259531799" className={styles.phone}>
-          <PhoneIcon/><span>+375 (25) 953-17-99</span>
+        <a href="tel:+375447452679" className={styles.phone}>
+          <PhoneIcon/><span>+375 (44) 745-26-79</span>
+        </a>
+        <a href="viber://chat?number=%2B375447452679" className={classes(styles.phone, styles.viber)}>
+          <PhoneIcon viber />
         </a>
         <Button type="primary" onClick={handleOpenModel}>Оценить авто</Button>
       </div>

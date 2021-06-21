@@ -5,7 +5,6 @@ import SelectField from "../../components/Form/SelectField";
 import InputField from "../../components/Form/InputField";
 import InputNumberField from "../../components/Form/InputNumberField";
 import InputPhoneField from "../../components/Form/InputPhoneField";
-import ImageDefault from "./ImageUploader";
 import {cars} from "../../helpers/cars";
 import {years} from "../../helpers/years";
 
@@ -65,7 +64,7 @@ const RatingAutoFormContent = ({values, errors, setFieldValue, handleSubmit, dir
   }, [values, dirty]);
 
   return (
-    <div className={classnames(styles.formAction, isSubmitting && styles.formActionSubmitting)}>
+    <form onSubmit={handleSubmit} className={classnames(styles.formAction, isSubmitting && styles.formActionSubmitting)}>
       <Field
         name="mark"
         label="Марка"
@@ -107,14 +106,9 @@ const RatingAutoFormContent = ({values, errors, setFieldValue, handleSubmit, dir
         placeholder="Введите номер"
         component={InputPhoneField}
       />
-      {/*<Field*/}
-      {/*  name="photos"*/}
-      {/*  label="Фотографии"*/}
-      {/*  placeholder="Кликнитеили перетащите сюда фотографии"*/}
-      {/*  component={ImageDefault}*/}
-      {/*/>*/}
       <Button
         type="primary"
+        htmlType="submit"
         disabled={isSubmitting || !!Object.keys(errors).length}
         loading={isSubmitting}
         onClick={handleSubmit}
@@ -122,7 +116,7 @@ const RatingAutoFormContent = ({values, errors, setFieldValue, handleSubmit, dir
       >
         Оценить авто
       </Button>
-    </div>
+    </form>
   );
 };
 

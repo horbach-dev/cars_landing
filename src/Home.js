@@ -8,7 +8,7 @@ import RatingAuto from "./components/RatingAuto";
 import PurchasedCars from "./components/PurchasedCars";
 import CarLogosSection from "./components/CarLogosSection";
 import Footer from "./components/Footer";
-import Admin from "./components/Admin";
+// import Admin from "./components/Admin";
 
 const Home = () => {
   const [mark, setMark] = useState('')
@@ -58,7 +58,7 @@ const Home = () => {
       <PurchasedCars handleOpenModel={handleOpenModel}/>
       <CarLogosSection handleClickMark={setMark}/>
       <Footer/>
-      {isLogged && isOpenAdmin && <Admin closeAdmin={() => setOpenAdmin(false)}/>}
+      {/*{isLogged && isOpenAdmin && <Admin closeAdmin={() => setOpenAdmin(false)}/>}*/}
     </div>
   )
 }

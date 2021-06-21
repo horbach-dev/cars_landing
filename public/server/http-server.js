@@ -5,6 +5,7 @@ const app = express();
 
 const formRoutes = require('./routes/formRoutes');
 const carsRoutes = require('./routes/cars');
+const subscribeRoutes = require('./routes/subscribeRoutes');
 
 // Headers
 app.use(function (req, res, next) {
@@ -27,6 +28,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(formRoutes);
 app.use(carsRoutes);
+app.use(subscribeRoutes);
 
 
 module.exports = app;

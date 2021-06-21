@@ -16,7 +16,7 @@ const ModalForm = ({ values, handleSubmit, dirty, isSubmitting, errors }) => {
   }, [values, dirty]);
 
   return (
-    <div className={styles.form}>
+    <form onSubmit={handleSubmit} className={styles.form}>
       <div className={classnames(styles.formAction, isSubmitting && styles.formActionSubmitting)}>
         <div
           className={styles.fields}
@@ -37,13 +37,14 @@ const ModalForm = ({ values, handleSubmit, dirty, isSubmitting, errors }) => {
       </div>
       <Button
         type="primary"
+        htmlType="submit"
         loading={isSubmitting}
         onClick={handleSubmit}
         disabled={isSubmitting || !!Object.keys(errors).length}
       >
         Отправить заявку
       </Button>
-    </div>
+    </form>
   );
 };
 
