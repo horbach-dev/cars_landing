@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Formik} from "formik";
 import classnames from "classnames";
 import MainSectionFormContent from "./MainSectionFormContent";
-import api from "../../../utils/api";
+import api, {sendTelegramMessage} from "../../../utils/api";
 
 import styles from "./MainSectionForm.module.scss";
 import {FormError} from "../../../utils/formError";
@@ -19,16 +19,28 @@ const MainSectionForm = ({ complete, handleComplete }) => {
   }, []);
 
   const handleSubmit = (values, { setSubmitting, setErrors }) => {
-    api.sendForm(values).ready.then(res => {
-      if (res.data && res.data.mark) {
-        handleComplete()
-        localStorage.removeItem('firstForm')
-      }
-    }).catch(e => {
+    sendTelegramMessage(values)
+        .then(res => {
+          if (res.data && res.data.mark) {
+            handleComplete()
+            localStorage.removeItem('firstForm')
+          }
+        }).catch(e => {
       if (e instanceof FormError) {
         setErrors(e.errors);
       }
     }).finally(() => setSubmitting(false))
+
+    // api.sendForm(values).ready.then(res => {
+    //   if (res.data && res.data.mark) {
+    //     handleComplete()
+    //     localStorage.removeItem('firstForm')
+    //   }
+    // }).catch(e => {
+    //   if (e instanceof FormError) {
+    //     setErrors(e.errors);
+    //   }
+    // }).finally(() => setSubmitting(false))
   };
 
   return (

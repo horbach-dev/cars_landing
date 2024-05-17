@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Formik} from "formik";
-import api from "../../utils/api";
+import api, {sendTelegramMessage} from "../../utils/api";
 import RatingAutoFormContent from "./RatingAutoFormContent";
 import {FormError} from "../../utils/formError";
 
@@ -25,12 +25,24 @@ const RatingAutoForm = ({ complete, handleComplete, mark }) => {
   }, []);
 
   const handleSubmit = (values, {setSubmitting, setErrors}) => {
-    api.sendForm(values).ready.then(res => {
-      if (res.data && res.data.mark) {
-        handleComplete()
-        localStorage.removeItem('firstForm')
-      }
-    }).catch(e => {
+    // api.sendForm(values).ready.then(res => {
+    //   if (res.data && res.data.mark) {
+    //     handleComplete()
+    //     localStorage.removeItem('firstForm')
+    //   }
+    // }).catch(e => {
+    //   if (e instanceof FormError) {
+    //     setErrors(e.errors);
+    //   }
+    // }).finally(() => setSubmitting(false))
+
+    sendTelegramMessage(values)
+        .then(res => {
+          if (res.data && res.data.mark) {
+            handleComplete()
+            localStorage.removeItem('firstForm')
+          }
+        }).catch(e => {
       if (e instanceof FormError) {
         setErrors(e.errors);
       }
