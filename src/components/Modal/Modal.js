@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {Modal as Window} from "antd";
 import {Formik} from "formik";
 import ModalForm from "./ModalForm";
-import api from "../../utils/api";
+import api, {sendTelegramMessage} from "../../utils/api";
 import styles from "./Modal.module.css";
 import {FormError} from "../../utils/formError";
 
@@ -20,15 +20,19 @@ const Modal = ({ isModalVisible, handleCancel, setOpenAdmin }) => {
       return
     }
 
-    api.sendShortForm(values).ready.then(res => {
-      if (res.data && res.data.name) {
-        setCompleted(true)
-      }
-    }).catch(e => {
-      if (e instanceof FormError) {
-        setErrors(e.errors);
-      }
-    }).finally(() => setSubmitting(false))
+    // api.sendShortForm(values).ready.then(res => {
+    //   if (res.data && res.data.name) {
+    //     setCompleted(true)
+    //   }
+    // })
+    // const user = { name, phone, date: new Date().getTime() }
+    sendTelegramMessage({ ...values, date: new Date().getTime() })
+        .catch(e => {
+          if   (e instanceof FormError) {
+            setErrors(e.errors);
+          }
+        })
+        .finally(() => setSubmitting(false))
   };
 
   return (

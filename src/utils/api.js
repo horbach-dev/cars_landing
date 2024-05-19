@@ -79,10 +79,10 @@ const getBitrixFields = ({ mark, model, year, price, name, phone }) => {
   return str
 }
 
-// const TELEGRAM_CHAT_ID = '-1002023620623'
-const TELEGRAM_CHAT_ID = '-535143097'
-const TELEGRAM_TOKEN = '1953457589:AAHflTWrEBxI31Gf3PSrJaW7X29DC3AFQMg'
-// const TELEGRAM_TOKEN = '7096977936:AAGlkv6pnrQKy64Bohuqjsq6v6dk8BLCA40'
+const TELEGRAM_CHAT_ID = '-1002023620623'
+// const TELEGRAM_CHAT_ID = '-535143097'
+// const TELEGRAM_TOKEN = '1953457589:AAHflTWrEBxI31Gf3PSrJaW7X29DC3AFQMg'
+const TELEGRAM_TOKEN = '7096977936:AAGlkv6pnrQKy64Bohuqjsq6v6dk8BLCA40'
 
 const fields = {
   mark: 'Марка',
@@ -102,9 +102,10 @@ export const sendTelegramMessage = async (data) => {
 
   console.log(message)
 
-  console.log(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&parse_mode=html&text=${message}`)
+  // console.log(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&parse_mode=html&text=${message}`)
+  return fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&parse_mode=html&text=${message}`)
 
-  return `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&parse_mode=html&text=${message}`
+  // return `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&parse_mode=html&text=${message}`
 }
 
 const api = {
