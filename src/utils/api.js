@@ -1,88 +1,7 @@
-import axios from 'axios'
-import { message } from 'antd';
-import { FormError } from "../utils/formError";
+import { FormError } from "./formError";
 
-const FORM_ERROR_CODE = 10001;
-const ALERT_ERROR_CODE = 10101;
-
-// const local = '/'
-const local = 'http://localhost:8002/'
-
-const client = axios.create({
-  baseURL: local,
-});
-
-export const request = (endpoint, options = {}) => {
-  const ready = client(endpoint, options)
-    .then((response) => {
-      return response;
-    })
-    .catch((error) => {
-      if (error.message === "Network Error") {
-        message.error('Произошла ошибка, свяжитесь с нами по телефону!');
-      }
-
-      if (!error.response || !error.response.data) {
-        throw error;
-      }
-
-      if (error.response.status === 404) {
-        return message.error('Произошла ошибка, свяжитесь с нами по телефону!');
-      }
-
-      const errorCode = error.response.data.code;
-
-      if (errorCode === 2300) {
-        message.error('Произошла ошибка, свяжитесь с нами по телефону!');
-      }
-
-      if (error.response.data) {
-        if (errorCode === FORM_ERROR_CODE) {
-          message.warning('Пожалуйста заполните поля правильно!');
-          throw new FormError(error.response.data.errors)
-        }
-      }
-
-      if (errorCode === ALERT_ERROR_CODE) {
-        if(error.response.data.message) {
-          // throw new AlertError(error.response.data.message)
-        }
-      }
-
-      throw error;
-    });
-
-  return {
-    ready,
-  };
-};
-
-const getBitrixFields = ({ mark, model, year, price, name, phone }) => {
-  let str = ''
-
-  if (mark || model || year) {
-    str = str + `FIELDS[TITLE]=${mark} ${model} г. ${year}&FIELDS[COMMENTS]=${mark} ${model}, ${year} год`
-  }
-
-  if (name) {
-    str = str + `&FIELDS[NAME]=${name}`
-  }
-
-  if (price) {
-    str = str + `&FIELDS[OPPORTUNITY]=${price}&FIELDS[CURRENCY_ID]=USD`
-  }
-
-  if (phone) {
-    str = str + `&FIELDS[PHONE][0][VALUE]=${phone}`
-  }
-
-  return str
-}
-
-const TELEGRAM_CHAT_ID = '-1002023620623'
-// const TELEGRAM_CHAT_ID = '-535143097'
-// const TELEGRAM_TOKEN = '1953457589:AAHflTWrEBxI31Gf3PSrJaW7X29DC3AFQMg'
-const TELEGRAM_TOKEN = '7096977936:AAGlkv6pnrQKy64Bohuqjsq6v6dk8BLCA40'
+const TELEGRAM_CHAT_ID = '-535143097'
+const TELEGRAM_TOKEN = '1953457589:AAHflTWrEBxI31Gf3PSrJaW7X29DC3AFQMg'
 
 const fields = {
   mark: 'Марка',
@@ -93,56 +12,60 @@ const fields = {
   phone: 'Телефон',
 }
 
+const fieldsErrors = {
+  mark: 'Введите марку',
+  model: 'Введите модель',
+  year: 'Введите год',
+  price: 'Введите желаемую цену',
+  name: 'Введите Ваше имя',
+  phone: 'Введите номер телефона',
+}
+
+const formValidation = (data) => {
+  const { name, ...fieldsData } = data
+  const errors = {}
+
+  Object.keys(fieldsData).forEach(key => {
+    const field = fieldsData[key]
+
+    if (!field || field === '') {
+      errors[key] = fieldsErrors[key]
+    }
+  })
+
+  const phoneNumbers = parseInt(fieldsData.phone.replace(/[^\d]/g, '')) || 0
+  if (phoneNumbers && phoneNumbers !== 0) {
+    if (String(phoneNumbers).length < 12) {
+      errors.phone = 'Номер введен не полностью'
+    }
+
+    const codes = ['37529','37533','37544','37517','37524','37525']
+    const isValid = codes.some(code => String(phoneNumbers).startsWith(code))
+
+    console.log(isValid)
+    console.log(phoneNumbers)
+    if (!isValid) {
+      errors.phone = 'Ошибка в коде оператора'
+    }
+  }
+
+  return errors
+}
+
 export const sendTelegramMessage = async (data) => {
+  const errors = formValidation(data)
+
+  if (Object.keys(errors).length > 0) {
+    return new Promise((resolve, reject) => {
+      reject(new FormError(errors))
+    })
+  }
+
   const message = Object.keys(data).map(field => {
     if (field === 'date') return ''
     if (field === 'phone') return encodeURIComponent(`<b>${fields[field]}:</b> <a href='${data[field]}'>${data[field]}</a>`) + '%0A'
     return encodeURIComponent(`<b>${fields[field]}:</b> ${data[field]}`) + '%0A'
   }).join('')
 
-  console.log(message)
-
-  // console.log(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&parse_mode=html&text=${message}`)
   return fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&parse_mode=html&text=${message}`)
-
-  // return `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&parse_mode=html&text=${message}`
 }
-
-const api = {
-  sendForm: data => {
-    return request('/send-from', {
-      method: 'POST',
-      data
-    })
-  },
-  sendShortForm: data => {
-    return request('/send-short-from', {
-      method: 'POST',
-      data
-    })
-  },
-  getAllCars: () => {
-    return request('/get-all-cars')
-  },
-  removeCar: (id) => {
-    return request(`/remove-car/${id}`, {
-      method: 'POST'
-    })
-  },
-  handleAccept: (id) => {
-    return request(`/accept-car/${id}`, {
-      method: 'POST'
-    })
-  },
-  webSocketConnect: (id) => {
-    return request(`/connect-websocket/${id}`);
-  },
-  PushSubscribe: (data) => {
-    return request('/subscribe', {
-      method: 'POST',
-      data: data
-    })
-  }
-}
-
-export default api;

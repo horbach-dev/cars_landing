@@ -9,7 +9,7 @@ import {cars} from "../../helpers/cars";
 import {years} from "../../helpers/years";
 
 import styles from "./RatingAutoForm.module.css";
-import {Button} from "antd";
+import { Button } from "antd";
 
 const RatingAutoFormContent = ({values, errors, setFieldValue, handleSubmit, dirty, isSubmitting, mark}) => {
   const [modelValues, setModelValues] = useState(

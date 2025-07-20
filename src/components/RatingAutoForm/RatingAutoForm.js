@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {Formik} from "formik";
-import api, {sendTelegramMessage} from "../../utils/api";
+import {sendTelegramMessage} from "../../utils/api";
 import RatingAutoFormContent from "./RatingAutoFormContent";
 import {FormError} from "../../utils/formError";
+import CompletedScreen from "../CompletedScreen";
 
 import styles from "./RatingAutoForm.module.css";
-import CompletedScreen from "../CompletedScreen";
 
 const template = {
   mark: '',
@@ -25,26 +25,17 @@ const RatingAutoForm = ({ complete, handleComplete, mark }) => {
   }, []);
 
   const handleSubmit = (values, {setSubmitting, setErrors}) => {
-    // api.sendForm(values).ready.then(res => {
-    //   if (res.data && res.data.mark) {
-    //     handleComplete()
-    //     localStorage.removeItem('firstForm')
-    //   }
-    // }).catch(e => {
-    //   if (e instanceof FormError) {
-    //     setErrors(e.errors);
-    //   }
-    // }).finally(() => setSubmitting(false))
-
     sendTelegramMessage(values)
         .then(res => {
-          if (res.data && res.data.mark) {
+          if (res.status === 200) {
             handleComplete()
             localStorage.removeItem('firstForm')
           }
         }).catch(e => {
       if (e instanceof FormError) {
         setErrors(e.errors);
+      } else {
+        alert('Непредвиденная ошибка на сервере, пожалуйста, свяжитесь с нами по телефону!')
       }
     }).finally(() => setSubmitting(false))
   };
