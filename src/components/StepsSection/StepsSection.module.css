@@ -8,22 +8,44 @@
 
 .actionButtons {
     position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    bottom: 25px;
+    left: 60px;
     width: 100%;
     z-index: 20;
 }
 
+@media (max-width: 1080px) {
+    .actionButtons {
+        left: 50px;
+    }
+}
+
+@media (max-width: 680px) {
+    .actionButtons {
+        bottom: 16px;
+    }
+}
+
 .actionBtn {
-    position: absolute;
-    top: -25px;
-    border-radius: 100px;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 100px !important;
+    width: 50px !important;
+    height: 50px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+@media (max-width: 680px) {
+    .actionBtn {
+        width: 38px !important;
+        height: 38px !important;
+    }
+}
+
+.actionBtn:nth-child(1) {
+    margin-right: 16px;
 }
 
 .actionBtn span {
@@ -34,14 +56,6 @@
 .actionBtn svg {
     height: 18px;
     width: 18px;
-}
-
-.actionBtn:nth-child(1) {
-    left: -25px;
-}
-
-.actionBtn:nth-child(2) {
-    right: -25px;
 }
 
 .featuresBlock {
@@ -182,17 +196,5 @@
     }
     .featuresBlock {
         padding: 30px 35px 30px 45px;
-    }
-    .actionBtn {
-        max-width: 40px;
-        width: 40px;
-        height: 40px;
-        padding: 0;
-    }
-    .actionBtn:nth-child(1) {
-        left: -20px;
-    }
-    .actionBtn:nth-child(2) {
-        right: -20px;
     }
 }
